@@ -1,0 +1,307 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0;  /* Ajusta este padding según lo que quieras de espacio vertical */
+}
+
+.wrapper {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+}
+
+main {
+  flex: 1 0 auto;
+  overflow-y: auto; /* Permite scroll vertical si el contenido es más largo que la pantalla */
+  
+}
+
+footer {
+  flex-shrink: 0;
+  width: 100%;
+  background-color: v.$azul;  /* Usa la variable azul */
+  color: v.$blanco;
+  text-align: center;
+  padding: 2.5rem 0;
+  position: relative;
+  bottom: 0;
+  margin-top: 4rem;
+
+
+  p {
+    margin: 0;
+    font-family: v.$fuente_principal;
+    font-size: 1.2rem;
+  }
+
+  a {
+    color: v.$blanco;
+    text-decoration: underline;
+    
+    &:hover {
+      color: lighten(v.$azul, 10%);  /* Aclara el color azul al pasar el cursor */
+    }
+  }
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  color: #ffffff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #a0c4ff;
+}
+
+.footer-link {
+  color: #ffffff;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #a0c4ff;
+}
+
+@media screen and (max-width: 600px) {
+  footer {
+    font-size: 0.9rem;
+  }
+  
+  .social-icon {
+    font-size: 1.2rem;
+  }
+}
+
+.separador {
+  width: 100%;
+  height: 4vh;
+}
+
+.contenedor-banner {
+  display: flex;
+  background-color: v.$negro;
+  width: 100%;
+  height: 50vh;
+  margin-top: 70px;
+  
+}
+
+.derecha {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
+.izquierda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
+.contenido-derecha {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    color: v.$blanco;
+    font-family: v.$fuente_principal;
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+  }
+}
+
+.contenido-izquierda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  @media (min-width: v.$tablet) {
+    max-width: 70%;  // En tabletas, el contenedor ocupa el 70% del ancho
+  }
+
+  @media (min-width: v.$desktop) {
+    max-width: 100%;  // En escritorios, el contenedor ocupa el 50% del ancho
+  }
+
+  @media (min-width: v.$desktopXL) {
+    max-width: 100%;  // En pantallas grandes, ocupa el 40% del ancho
+  }
+}
+
+.boton-conocer-mas {
+  background-color: v.$azul;
+  font-family: v.$fuente_principal;
+  font-weight: 700;
+  color: v.$blanco;
+  margin-left: 2vh;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  @media (min-width: v.$desktopXL) {
+    font-size: 2.5rem;
+  }
+
+  &:hover {
+    background-color: v.$blanco;
+    color: v.$azul;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+  }
+}
+
+.espacio-2 {
+  width: 100%;
+  height: 3vh;
+  background-color: v.$azul;
+  margin-bottom: 3vh;
+}
+
+.contenedor-info__usuario {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 0;
+  justify-items: center;
+  width: 80%;
+  margin: 0 auto;
+  justify-items: center;  /* Centra horizontalmente los elementos dentro del grid */
+}
+
+.info-box {
+  background-color: #81c9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 90%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: 200ms all ease-in-out;
+
+  h3 {
+    font-family: v.$fuente_titulo;
+    color: v.$blanco;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    @media (min-width: v.$desktopXL) {
+      font-size: 2.5rem;
+    }
+  }
+
+  p {
+    font-family: v.$fuente_principal;
+    color: v.$negro;
+    font-size: 1.5rem;
+    @media (min-width: v.$desktopXL) {
+      font-size: 2rem;
+    }
+  }
+  &:hover{
+    transform: scale(1.05); 
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); 
+    background-color: rgb(58, 125, 202); 
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; // Alinea los enlaces a la derecha
+  margin-left: auto; // Empuja los enlaces a la derecha
+}
+
+.logo {
+  margin-right: auto; // Empuja el logo a la izquierda
+}
+
+.user-placeholder,
+.dropdown {
+  display: inline-block;
+  margin-left: 20px; // Agrega margen para separarlo de los demás elementos
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block; // Muestra el menú desplegable al hacer hover
+}
+
+.dropdown-menu li {
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background-color: #ddd;
+}
+a {
+  text-decoration: none;     // Elimina el subrayado de todos los enlaces
+  color: v.$negro;           // Aplica el mismo color a todos los enlaces
+  font-size: 1rem;           // Tamaño de fuente estandarizado para todos los enlaces
+  transition: color 0.3s ease, background-color 0.3s ease; // Transición suave en el color
+}
+nav a {
+  color: v.$negro;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 9px 10px;
+    border-radius: 5px;
+    transition: all 0.300s ease;
+    margin-left: 1rem;
+}
+
+
